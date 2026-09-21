@@ -88,6 +88,9 @@ export default function FeaturedHero({ anime, loading }) {
       }}>
         {loading ? (
           <div style={{ maxWidth: 560 }}>
+            <h1 style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
+              ListIt — Ultimate Anime &amp; Web Series Tracking Platform
+            </h1>
             <Skeleton height={16} width={120} style={{ marginBottom: 16 }} />
             <Skeleton height={56} width="90%" style={{ marginBottom: 12 }} />
             <Skeleton height={56} width="70%" style={{ marginBottom: 20 }} />
