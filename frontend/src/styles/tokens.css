@@ -1,0 +1,152 @@
+/* ============================================
+   LISTIT — DESIGN TOKENS
+   Premium Dark Mode | Purple × Indigo × Cyan
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+  /* ── BACKGROUNDS ── */
+  --bg-deep:      #050508;
+  --bg-base:      #0A0A12;
+  --bg-elevated:  #12121E;
+  --bg-card:      #161624;
+  --bg-overlay:   rgba(255, 255, 255, 0.04);
+  --bg-hover:     rgba(255, 255, 255, 0.06);
+  --bg-glass:     rgba(10, 10, 18, 0.72);
+
+  /* ── BRAND COLORS ── */
+  --primary:         #7C3AED;
+  --primary-light:   #9F67F5;
+  --primary-dark:    #5B21B6;
+  --primary-glow:    rgba(124, 58, 237, 0.30);
+  --primary-subtle:  rgba(124, 58, 237, 0.12);
+
+  --secondary:       #4F46E5;
+  --secondary-light: #6366F1;
+  --secondary-glow:  rgba(79, 70, 229, 0.25);
+
+  --accent:          #06B6D4;
+  --accent-light:    #22D3EE;
+  --accent-glow:     rgba(6, 182, 212, 0.25);
+  --accent-subtle:   rgba(6, 182, 212, 0.12);
+
+  --warm:            #F43F5E;
+  --warm-glow:       rgba(244, 63, 94, 0.25);
+
+  --success:         #10B981;
+  --success-subtle:  rgba(16, 185, 129, 0.12);
+
+  --warning:         #F59E0B;
+  --warning-subtle:  rgba(245, 158, 11, 0.12);
+
+  --danger:          #EF4444;
+  --danger-subtle:   rgba(239, 68, 68, 0.12);
+
+  /* ── TEXT ── */
+  --text-primary:   #EDEDEF;
+  --text-secondary: #A0A4B8;
+  --text-muted:     #64748B;
+  --text-disabled:  #3E4258;
+  --text-inverse:   #050508;
+
+  /* ── BORDERS ── */
+  --border:         rgba(255, 255, 255, 0.08);
+  --border-hover:   rgba(255, 255, 255, 0.16);
+  --border-focus:   var(--primary);
+  --border-strong:  rgba(255, 255, 255, 0.24);
+
+  /* ── GRADIENTS ── */
+  --gradient-brand:   linear-gradient(135deg, #7C3AED 0%, #4F46E5 50%, #06B6D4 100%);
+  --gradient-hero:    linear-gradient(135deg, rgba(124,58,237,0.8) 0%, rgba(79,70,229,0.6) 50%, rgba(6,182,212,0.4) 100%);
+  --gradient-card:    linear-gradient(145deg, rgba(124,58,237,0.08) 0%, rgba(6,182,212,0.04) 100%);
+  --gradient-warm:    linear-gradient(135deg, #7C3AED 0%, #F43F5E 100%);
+  --gradient-subtle:  linear-gradient(180deg, rgba(124,58,237,0.06) 0%, transparent 100%);
+  --gradient-dark:    linear-gradient(180deg, #0A0A12 0%, #050508 100%);
+
+  /* ── SHADOWS ── */
+  --shadow-sm:      0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md:      0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-lg:      0 12px 32px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-xl:      0 24px 48px rgba(0,0,0,0.7), 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-glow-purple: 0 0 32px var(--primary-glow), 0 0 8px var(--primary-glow);
+  --shadow-glow-cyan:   0 0 32px var(--accent-glow), 0 0 8px var(--accent-glow);
+  --shadow-card:    0 4px 24px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
+
+  /* ── RADIUS ── */
+  --radius-xs:  4px;
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  /* ── SPACING ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ── TYPOGRAPHY ── */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'Fira Code', 'Courier New', monospace;
+
+  --text-xs:    0.75rem;   /* 12px */
+  --text-sm:    0.875rem;  /* 14px */
+  --text-base:  1rem;      /* 16px */
+  --text-lg:    1.125rem;  /* 18px */
+  --text-xl:    1.25rem;   /* 20px */
+  --text-2xl:   1.5rem;    /* 24px */
+  --text-3xl:   1.875rem;  /* 30px */
+  --text-4xl:   2.25rem;   /* 36px */
+  --text-5xl:   3rem;      /* 48px */
+  --text-6xl:   3.75rem;   /* 60px */
+  --text-7xl:   4.5rem;    /* 72px */
+
+  --leading-tight:  1.2;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.75;
+
+  --tracking-tight:  -0.04em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.05em;
+  --tracking-wider:  0.1em;
+
+  /* ── Z-INDEX ── */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+
+  /* ── TRANSITIONS ── */
+  --transition-fast:   150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base:   250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow:   400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── BLUR ── */
+  --blur-sm:   8px;
+  --blur-md:   16px;
+  --blur-lg:   24px;
+  --blur-xl:   40px;
+
+  /* ── NAVBAR ── */
+  --navbar-h: 64px;
+}

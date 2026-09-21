@@ -1,0 +1,216 @@
+{
+  "audit_timestamp": "2026-09-20T22:57:35.326435",
+  "test_environment": {
+    "frontend_url": "http://localhost:3000",
+    "backend_url": "http://localhost:5000",
+    "browser": "Chromium"
+  },
+  "suites_summary": {},
+  "feature_matrix": [
+    {
+      "category": "Navigation",
+      "feature": "Home Page Load",
+      "status": "PASSED",
+      "details": "Status 200, 878.39ms load"
+    },
+    {
+      "category": "Home",
+      "feature": "Hero & Trending Anime/Series Cards",
+      "status": "PASSED",
+      "details": "Found 2 media links"
+    },
+    {
+      "category": "UI/UX",
+      "feature": "Theme Toggle",
+      "status": "PASSED",
+      "details": "Theme button evaluated"
+    },
+    {
+      "category": "Anime",
+      "feature": "Browse Grid & Card Rendering",
+      "status": "PASSED",
+      "details": "1 anime cards loaded in 563.52ms"
+    },
+    {
+      "category": "Anime",
+      "feature": "Seasonal Anime Page & Tabs",
+      "status": "PASSED",
+      "details": "1 seasonal cards found"
+    },
+    {
+      "category": "Series",
+      "feature": "TVMaze Series Browse & Rendering",
+      "status": "FAILED",
+      "details": "0 series cards loaded"
+    },
+    {
+      "category": "Search",
+      "feature": "Live Anime & AI Search with Debounce",
+      "status": "PASSED",
+      "details": "Returned 1 results for 'Attack on Titan'"
+    },
+    {
+      "category": "Anime Detail",
+      "feature": "Title, Banner, Score & Metadata",
+      "status": "FAILED",
+      "details": "Title: "
+    },
+    {
+      "category": "Anime Detail",
+      "feature": "Characters and Cast Section",
+      "status": "WARNING",
+      "details": "Characters section rendered"
+    },
+    {
+      "category": "Anime Detail",
+      "feature": "Community Reviews Section",
+      "status": "WARNING",
+      "details": "Reviews section present"
+    },
+    {
+      "category": "Series Detail",
+      "feature": "Series Episodes & Metadata",
+      "status": "FAILED",
+      "details": "Series: "
+    },
+    {
+      "category": "Auth",
+      "feature": "Login Empty Form Prevention",
+      "status": "PASSED",
+      "details": "Form prevents submission or prompts required"
+    },
+    {
+      "category": "Auth",
+      "feature": "Forgot Password Safe Response (VULN-01/02 Verified)",
+      "status": "PASSED",
+      "details": "No OTP leaked in client, no phantom user"
+    },
+    {
+      "category": "Auth",
+      "feature": "Full UI Login & Token Storage",
+      "status": "PASSED",
+      "details": "Token present: True"
+    },
+    {
+      "category": "Dashboard",
+      "feature": "User Dashboard Load & Overview",
+      "status": "PASSED",
+      "details": "Header: Welcome back, qa_user_cca44b"
+    },
+    {
+      "category": "List Management",
+      "feature": "Lists Page Display & Tabs",
+      "status": "WARNING",
+      "details": "Found 0 entries on Lists page"
+    },
+    {
+      "category": "Settings",
+      "feature": "Avatar Preset Selection & Save",
+      "status": "PASSED",
+      "details": "Gojo avatar selected and saved"
+    },
+    {
+      "category": "Settings",
+      "feature": "Change Password Form Submission",
+      "status": "PASSED",
+      "details": "Password successfully changed and confirmed via toast"
+    },
+    {
+      "category": "Admin",
+      "feature": "Admin Stats & User Management Table",
+      "status": "FAILED",
+      "details": "Dynamic database stats & users table loaded"
+    },
+    {
+      "category": "Responsive",
+      "feature": "Mobile_iPhone_14 (390x844)",
+      "status": "PASSED",
+      "details": "Clean layout, zero overflow"
+    },
+    {
+      "category": "Responsive",
+      "feature": "Tablet_iPad_Mini (768x1024)",
+      "status": "PASSED",
+      "details": "Clean layout, zero overflow"
+    },
+    {
+      "category": "Responsive",
+      "feature": "Laptop_HD (1366x768)",
+      "status": "PASSED",
+      "details": "Clean layout, zero overflow"
+    },
+    {
+      "category": "Responsive",
+      "feature": "Desktop_FHD (1920x1080)",
+      "status": "PASSED",
+      "details": "Clean layout, zero overflow"
+    },
+    {
+      "category": "Responsive",
+      "feature": "UltraWide_QHD (2560x1440)",
+      "status": "PASSED",
+      "details": "Clean layout, zero overflow"
+    },
+    {
+      "category": "Security",
+      "feature": "Reflected XSS in Query Parameters",
+      "status": "PASSED",
+      "details": "Search query sanitized correctly in React DOM"
+    },
+    {
+      "category": "Security",
+      "feature": "Protected Route Redirection (/admin)",
+      "status": "FAILED",
+      "details": "Redirected to: http://localhost:3000/admin"
+    }
+  ],
+  "bugs": [],
+  "security_findings": [],
+  "performance_findings": [],
+  "responsive_findings": [],
+  "console_errors": [],
+  "network_errors": [
+    {
+      "page": "Home",
+      "url": "http://localhost:3000/api/search/character",
+      "method": "POST",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "AnimeBrowse",
+      "url": "http://localhost:3000/api/search/character",
+      "method": "POST",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "Seasonal",
+      "url": "http://localhost:3000/api/search/character",
+      "method": "POST",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "SeriesBrowse",
+      "url": "http://localhost:3000/api/search/character",
+      "method": "POST",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "SearchPage",
+      "url": "http://localhost:3000/api/search/character",
+      "method": "POST",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "AnimeDetail",
+      "url": "http://localhost:3000/api/search/character",
+      "method": "POST",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "page": "SeriesDetail",
+      "url": "http://localhost:3000/api/search/character",
+      "method": "POST",
+      "failure": "net::ERR_ABORTED"
+    }
+  ]
+}

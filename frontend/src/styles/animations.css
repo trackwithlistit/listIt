@@ -1,0 +1,151 @@
+/* ============================================
+   LISTIT — ANIMATIONS
+   ============================================ */
+
+/* ── FADE IN UP ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FADE IN ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── SLIDE IN RIGHT ── */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── SLIDE IN LEFT ── */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── SCALE IN ── */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── SHIMMER (skeleton loader) ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* ── GLOW PULSE ── */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 16px var(--primary-glow); }
+  50%       { box-shadow: 0 0 32px var(--primary-glow), 0 0 64px var(--primary-glow); }
+}
+
+/* ── GRADIENT SHIFT (hero bg) ── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── FLOAT (particles) ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  33%       { transform: translateY(-20px) rotate(120deg); opacity: 1; }
+  66%       { transform: translateY(-10px) rotate(240deg); opacity: 0.8; }
+}
+
+/* ── SPIN ── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── BLOB MORPH ── */
+@keyframes blobMorph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* ── BLOB DRIFT ── */
+@keyframes blobDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -40px) scale(1.05); }
+  66%       { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* ── TYPING CURSOR ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── WAVE ── */
+@keyframes wave {
+  0%   { transform: scaleY(1); }
+  50%  { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+/* ── RING FILL (score circles) ── */
+@keyframes ringFill {
+  from { stroke-dashoffset: 283; }
+  to   { stroke-dashoffset: var(--ring-offset, 0); }
+}
+
+/* ── NOTIFICATION BOUNCE ── */
+@keyframes bellWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  15%       { transform: rotate(15deg); }
+  30%       { transform: rotate(-12deg); }
+  45%       { transform: rotate(10deg); }
+  60%       { transform: rotate(-8deg); }
+  75%       { transform: rotate(5deg); }
+}
+
+/* ── UTILITY CLASSES ── */
+.animate-fadeInUp      { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fadeIn        { animation: fadeIn 0.4s ease both; }
+.animate-scaleIn       { animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.animate-slideInRight  { animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-slideInLeft   { animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-glowPulse     { animation: glowPulse 2.5s ease-in-out infinite; }
+.animate-spin          { animation: spin 1s linear infinite; }
+.animate-float         { animation: float 6s ease-in-out infinite; }
+
+/* ── SKELETON LOADER ── */
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--bg-elevated) 25%,
+    rgba(255,255,255,0.06) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ── STAGGER CHILDREN ── */
+.stagger-children > *:nth-child(1)  { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2)  { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3)  { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4)  { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5)  { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6)  { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7)  { animation-delay: 360ms; }
+.stagger-children > *:nth-child(8)  { animation-delay: 420ms; }
+
+/* ── PAGE TRANSITION OVERLAY ── */
+.page-transition-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gradient-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: var(--z-toast);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

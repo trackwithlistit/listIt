@@ -1,0 +1,58 @@
+# Agent & IDE internal directories
+.agents/
+.antigravity/
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+venv/
+env/
+.venv/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# Build Outputs
+dist/
+frontend/dist/
+dist-ssr/
+*.local
+
+# Python Cache
+__pycache__/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/*/__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Local Data / Cache Stores
+otp_cache.json
+verified_emails.json
+backend/image_safety_cache.json
+uploads/
+backend/uploads/
+
+# Test & Audit Outputs
+audit_screenshots/
+test_*.py
+debug_*.py
+backend/test_*.py
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+thumbs.db
+Thumbs.db

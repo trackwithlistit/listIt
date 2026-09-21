@@ -1,0 +1,204 @@
+/* ============================================
+   LISTIT — GLOBAL STYLES
+   ============================================ */
+@import './tokens.css';
+@import './animations.css';
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── CUSTOM SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── SELECTION ── */
+::selection {
+  background: var(--primary-subtle);
+  color: var(--primary-light);
+}
+
+/* ── FOCUS RING ── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── LINKS ── */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ── IMAGES ── */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+p { line-height: var(--leading-relaxed); }
+
+code, pre, kbd {
+  font-family: var(--font-mono);
+}
+
+/* ── BUTTONS RESET ── */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+/* ── LAYOUT HELPERS ── */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 var(--space-4); }
+}
+
+.section-gap { margin-bottom: var(--space-20); }
+
+/* ── GLASSMORPHISM MIXIN ── */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--border);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.glass-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-card), var(--shadow-glow-purple);
+  transform: translateY(-2px);
+}
+
+/* ── GRADIENT TEXT ── */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── GLOW EFFECTS ── */
+.glow-purple { box-shadow: var(--shadow-glow-purple); }
+.glow-cyan { box-shadow: var(--shadow-glow-cyan); }
+
+/* ── NOISE OVERLAY (subtle texture) ── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* ── SECTION TITLE ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
+}
+
+/* ── ANIME/SERIES BADGE STATUS COLORS ── */
+.status-watching    { color: #22D3EE; }
+.status-completed   { color: #10B981; }
+.status-on-hold     { color: #F59E0B; }
+.status-dropped     { color: #EF4444; }
+.status-plan        { color: #8B5CF6; }
+.status-rewatching  { color: #06B6D4; }
+
+/* ── PAGE CONTENT OFFSET ── */
+.page-content {
+  padding-top: var(--navbar-h);
+  min-height: 100vh;
+}
+
+/* ── SCORE COLORS ── */
+.score-high   { color: #10B981; }
+.score-mid    { color: #F59E0B; }
+.score-low    { color: #EF4444; }
+.score-na     { color: var(--text-muted); }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+  margin: var(--space-6) 0;
+}
+
+/* ── HIDE SCROLLBAR ── */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
