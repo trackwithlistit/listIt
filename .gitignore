@@ -44,6 +44,8 @@ audit_screenshots/
 test_*.py
 debug_*.py
 backend/test_*.py
+playwright_*.py
+playwright_*.json
 
 # Editor & OS files
 .vscode/
