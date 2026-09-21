@@ -137,8 +137,10 @@ def create_app(config_name=None):
     app.register_blueprint(admin_bp,   url_prefix='/api/admin')
     app.register_blueprint(proxy_bp,   url_prefix='/api/proxy')
 
+    @app.route('/')
+    @app.route('/api')
     @app.route('/api/health')
     def health():
-        return {'status': 'ok', 'service': 'ListIt API'}
+        return {'status': 'ok', 'service': 'ListIt API', 'version': '1.0.0'}
 
     return app
