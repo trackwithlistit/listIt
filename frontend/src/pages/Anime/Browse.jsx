@@ -7,6 +7,7 @@ import { SkeletonAnimeGrid } from '../../components/ui/Skeleton';
 import Button from '../../components/ui/Button';
 import Footer from '../../components/layout/Footer';
 import NikaIcon from '../../components/ui/NikaIcon';
+import SEO from '../../components/seo/SEO';
 import anilistAPI from '../../services/anilist';
 import { useAdultStore } from '../../store';
 
@@ -112,6 +113,15 @@ export default function AnimeBrowse() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
+      <SEO 
+        title="Browse Anime — Charts, Ratings & Genres" 
+        description="Browse all anime series, movies, and OVAs. Filter by genre, popularity, release status, score, and format on ListIt."
+        canonical="https://listit.app/anime"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Browse Anime', url: '/anime' }
+        ]}
+      />
       {/* Header */}
       <div style={{
         background: 'linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-deep) 100%)',

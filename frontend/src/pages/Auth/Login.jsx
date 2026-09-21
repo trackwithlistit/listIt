@@ -42,7 +42,11 @@ export default function LoginPage() {
       gridTemplateColumns: '1fr 1fr',
       background: 'var(--bg-deep)',
     }}>
-      <SEO title="Log In" description="Log in to your listIt account to track your anime and web series journey." />
+      <SEO 
+        title="Log In" 
+        description="Log in to your ListIt account to track your anime and web series journey."
+        canonical="https://listit.app/login"
+      />
       {/* ── LEFT: Brand panel ── */}
       <div style={{
         position: 'relative', overflow: 'hidden',

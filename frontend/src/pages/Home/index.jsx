@@ -65,7 +65,12 @@ export default function HomePage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
-      <SEO />
+      <SEO 
+        canonical="https://listit.app/"
+        breadcrumbs={[
+          { name: 'Home', url: '/' }
+        ]}
+      />
       {/* ── HERO ── */}
       <FeaturedHero anime={heroAnime} loading={loading} />
 

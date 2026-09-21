@@ -5,6 +5,7 @@ import anilistAPI from '../../services/anilist';
 import AnimeCard from '../../components/anime/AnimeCard';
 import { SkeletonAnimeGrid } from '../../components/ui/Skeleton';
 import Footer from '../../components/layout/Footer';
+import SEO from '../../components/seo/SEO';
 
 const SEASONS = ['WINTER', 'SPRING', 'SUMMER', 'FALL'];
 const SEASON_LABELS = { WINTER: '❄️ Winter', SPRING: '🌸 Spring', SUMMER: '☀️ Summer', FALL: '🍂 Fall' };
@@ -49,6 +50,16 @@ export default function SeasonalPage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
+      <SEO 
+        title={`Seasonal Anime ${year} (${season.charAt(0) + season.slice(1).toLowerCase()})`}
+        description={`Discover airing and upcoming anime for ${season.charAt(0) + season.slice(1).toLowerCase()} ${year}. Track seasonal release schedules and charts on ListIt.`}
+        canonical={`https://listit.app/anime/seasonal?season=${season}&year=${year}`}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Anime', url: '/anime' },
+          { name: 'Seasonal Anime', url: '/anime/seasonal' }
+        ]}
+      />
       <div style={{
         background: 'linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-deep) 100%)',
         borderBottom: '1px solid var(--border)',

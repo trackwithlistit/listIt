@@ -3,15 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>listIt — Anime &amp; Web Series Tracking Platform</title>
-    <meta name="description" content="Your ultimate anime & web series tracking platform. Discover, track, and share your entertainment journey." />
+    
+    <!-- Primary Page Metadata -->
+    <title>ListIt — Ultimate Anime & Web Series Tracking Platform</title>
+    <meta name="title" content="ListIt — Ultimate Anime & Web Series Tracking Platform" />
+    <meta name="description" content="Discover, track, and review your favorite anime and web series on ListIt. Real-time episode tracking, AI character search, seasonal anime charts, community reviews, and custom lists." />
+    <meta name="keywords" content="anime tracker, web series tracker, watch list app, anime watchlist, anilist alternative, myanimelist alternative, ai anime search, character search, seasonal anime 2026, anime reviews, episode progress counter, top rated web series, tvmaze series" />
+    <meta name="author" content="ListIt Team" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#050508" />
-    <meta property="og:title" content="listIt — Anime &amp; Web Series Tracking Platform" />
-    <meta property="og:description" content="Your ultimate anime & web series tracking platform. Discover, track, and share your entertainment journey." />
+    <meta name="application-name" content="ListIt" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ListIt" />
+
+    <!-- Open Graph / Facebook / Discord / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/default-og-image.jpg" />
+    <meta property="og:site_name" content="ListIt" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="ListIt — Ultimate Anime & Web Series Tracking Platform" />
+    <meta property="og:description" content="Discover, track, and review your favorite anime and web series on ListIt. Real-time episode tracking, AI character search, seasonal charts, and custom lists." />
+    <meta property="og:image" content="https://listit.app/nika-moon.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ListIt - Anime & Web Series Tracking Platform" />
+
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@trackwithlistit" />
+    <meta name="twitter:creator" content="@trackwithlistit" />
+    <meta name="twitter:title" content="ListIt — Ultimate Anime & Web Series Tracking Platform" />
+    <meta name="twitter:description" content="Discover, track, and review your favorite anime and web series on ListIt. Real-time episode tracking, AI character search, and custom lists." />
+    <meta name="twitter:image" content="https://listit.app/nika-moon.png" />
+
+    <!-- Structured Data (JSON-LD) - Google Sitelinks Searchbox -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ListIt",
+      "alternateName": ["listIt", "ListIt App", "ListIt Anime & Series Tracker"],
+      "url": "https://listit.app/",
+      "description": "The ultimate anime and web series tracking platform. Discover trending anime, track episode progress, create custom lists, and search characters with AI.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://listit.app/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

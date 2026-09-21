@@ -6,6 +6,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis
 import Avatar from '../../components/ui/Avatar';
 import Button from '../../components/ui/Button';
 import Footer from '../../components/layout/Footer';
+import SEO from '../../components/seo/SEO';
 import { useAuthStore, useListStore, useSeriesListStore } from '../../store';
 import { statsAPI, listAPI } from '../../services/backend';
 
@@ -116,6 +117,7 @@ export default function DashboardPage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
+      <SEO title="Dashboard" noindex={true} />
       {/* Header */}
       <div style={{
         background: 'linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-deep) 100%)',

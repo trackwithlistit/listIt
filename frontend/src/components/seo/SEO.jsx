@@ -1,40 +1,90 @@
 import { Helmet } from 'react-helmet-async';
 
+const DEFAULT_IMAGE = 'https://listit.app/nika-moon.png';
+const DEFAULT_DESCRIPTION = 'Discover, track, and review your favorite anime and web series on ListIt. Real-time episode tracking, AI character search, seasonal charts, and custom lists.';
+const DEFAULT_KEYWORDS = 'anime tracker, web series tracker, watch list app, anilist alternative, myanimelist alternative, ai anime search, seasonal anime 2026, anime reviews, episode progress counter';
+const SITE_NAME = 'ListIt';
+const SITE_ORIGIN = 'https://listit.app';
+
 export default function SEO({ 
   title, 
-  description = 'Your ultimate anime & web series tracking platform. Discover, track, and share your entertainment journey.', 
+  description = DEFAULT_DESCRIPTION, 
+  keywords = DEFAULT_KEYWORDS,
   type = 'website', 
-  image = 'https://listit.app/default-og-image.jpg', 
-  url, 
-  structuredData 
+  image = DEFAULT_IMAGE, 
+  url,
+  canonical,
+  noindex = false,
+  structuredData,
+  breadcrumbs
 }) {
-  const siteName = 'listIt';
-  const fullTitle = title ? `${title} | ${siteName}` : `${siteName} — Anime & Web Series Tracking Platform`;
+  const fullTitle = title 
+    ? (title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`)
+    : `${SITE_NAME} — Ultimate Anime & Web Series Tracking Platform`;
   
+  const pageUrl = canonical || (url ? (url.startsWith('http') ? url : `${SITE_ORIGIN}${url}`) : undefined);
+  const ogImage = image && image.startsWith('http') ? image : (image ? `${SITE_ORIGIN}${image}` : DEFAULT_IMAGE);
+
+  // Generate Breadcrumbs Schema if provided
+  let breadcrumbSchema = null;
+  if (breadcrumbs && Array.isArray(breadcrumbs) && breadcrumbs.length > 0) {
+    breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((b, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": b.name,
+        "item": b.url?.startsWith('http') ? b.url : `${SITE_ORIGIN}${b.url || ''}`
+      }))
+    };
+  }
+
   return (
     <Helmet>
       {/* Standard SEO */}
       <title>{fullTitle}</title>
+      <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      {pageUrl && <link rel="canonical" href={pageUrl} />}
+      {noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      )}
       
-      {/* Open Graph */}
+      {/* Open Graph / Facebook / Discord / WhatsApp */}
       <meta property="og:type" content={type} />
+      <meta property="og:site_name" content={SITE_NAME} />
+      <meta property="og:locale" content="en_US" />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:site_name" content={siteName} />
-      {image && <meta property="og:image" content={image} />}
-      {url && <meta property="og:url" content={url} />}
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={title || SITE_NAME} />
+      {pageUrl && <meta property="og:url" content={pageUrl} />}
       
-      {/* Twitter */}
+      {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@trackwithlistit" />
+      <meta name="twitter:creator" content="@trackwithlistit" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      {image && <meta name="twitter:image" content={image} />}
+      <meta name="twitter:image" content={ogImage} />
       
       {/* Structured Data (JSON-LD) */}
       {structuredData && (
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+      )}
+
+      {/* Breadcrumb Schema (JSON-LD) */}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       )}
     </Helmet>

@@ -281,6 +281,12 @@ export default function AnimeDetail() {
         description={description.substring(0, 160) + (description.length > 160 ? '...' : '')} 
         image={coverImage}
         type="video.tv_show"
+        canonical={`https://listit.app/anime/${id}`}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Anime', url: '/anime' },
+          { name: title || 'Detail', url: `/anime/${id}` }
+        ]}
         structuredData={structuredData}
       />
       {/* ── BANNER ── */}

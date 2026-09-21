@@ -7,6 +7,7 @@ import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Avatar from '../../components/ui/Avatar';
 import Footer from '../../components/layout/Footer';
+import SEO from '../../components/seo/SEO';
 import toast from 'react-hot-toast';
 
 const SETTING_TABS = [
@@ -162,6 +163,7 @@ export default function SettingsPage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh', paddingTop: 'calc(var(--navbar-h) + 40px)' }}>
+      <SEO title="Account Settings" noindex={true} />
       <div className="container" style={{ paddingBottom: 80 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-4xl)', fontWeight: 800, marginBottom: 32 }}>
           Settings

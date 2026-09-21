@@ -108,7 +108,11 @@ export default function ForgotPasswordPage() {
       gridTemplateColumns: '1fr 1fr',
       background: 'var(--bg-deep)',
     }}>
-      <SEO title="Forgot Password" description="Reset your listIt account password." />
+      <SEO 
+        title="Forgot Password" 
+        description="Reset your ListIt account password."
+        canonical="https://listit.app/forgot-password"
+      />
       {/* ── LEFT: Brand panel ── */}
       <div style={{
         position: 'relative', overflow: 'hidden',

@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
+Allow: /anime
+Allow: /anime/*
+Allow: /series
+Allow: /series/*
+Allow: /search
+Allow: /profile/*
+Allow: /login
+Allow: /register
+
+# Disallow private/authenticated pages from crawl budget
+Disallow: /dashboard
+Disallow: /lists
+Disallow: /settings
+Disallow: /admin
+Disallow: /api/
 
 Sitemap: https://listit.app/sitemap.xml

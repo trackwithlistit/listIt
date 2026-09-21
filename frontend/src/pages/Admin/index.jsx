@@ -5,6 +5,7 @@ import { adminAPI } from '../../services/backend';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import Footer from '../../components/layout/Footer';
+import SEO from '../../components/seo/SEO';
 import toast from 'react-hot-toast';
 
 export default function AdminPage() {
@@ -37,6 +38,7 @@ export default function AdminPage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh', paddingTop: 'calc(var(--navbar-h) + 40px)' }}>
+      <SEO title="Admin Console" noindex={true} />
       <div className="container" style={{ paddingBottom: 80 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32 }}>
           <ShieldCheck size={36} color="var(--primary)" />

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { BookmarkSimple, ArrowLeft, Warning } from '@phosphor-icons/react';
 import Button from '../../components/ui/Button';
 import ParticleBackground from '../../components/animations/ParticleBackground';
+import SEO from '../../components/seo/SEO';
 
 export default function NotFoundPage() {
   return (
@@ -12,6 +13,7 @@ export default function NotFoundPage() {
       position: 'relative', overflow: 'hidden',
       textAlign: 'center', padding: '20px',
     }}>
+      <SEO title="404 — Page Not Found" noindex={true} />
       <ParticleBackground />
       <div style={{ position: 'absolute', top: '20%', left: '10%', width: 300, height: 300, borderRadius: '50%', background: 'var(--primary-glow)', filter: 'blur(80px)', opacity: 0.4 }} />
       <div style={{ position: 'absolute', bottom: '20%', right: '10%', width: 200, height: 200, borderRadius: '50%', background: 'var(--accent-glow)', filter: 'blur(80px)', opacity: 0.3 }} />

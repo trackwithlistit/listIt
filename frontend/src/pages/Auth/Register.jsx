@@ -163,7 +163,11 @@ export default function RegisterPage() {
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       padding: '80px 20px',
     }}>
-      <SEO title="Sign Up" description="Create your listIt account to track anime, web series, characters, and discover new favorites." />
+      <SEO 
+        title="Sign Up" 
+        description="Create your ListIt account to track anime, web series, characters, and discover new favorites."
+        canonical="https://listit.app/register"
+      />
       {/* Background blobs */}
       <div style={{ position: 'fixed', top: '10%', left: '5%', width: 400, height: 400, borderRadius: '50%', background: 'var(--primary-glow)', filter: 'blur(100px)', opacity: 0.3, pointerEvents: 'none' }} />
       <div style={{ position: 'fixed', bottom: '10%', right: '5%', width: 300, height: 300, borderRadius: '50%', background: 'var(--accent-glow)', filter: 'blur(100px)', opacity: 0.2, pointerEvents: 'none' }} />

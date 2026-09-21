@@ -369,6 +369,12 @@ export default function SeriesDetail() {
         description={description.substring(0, 160) + (description.length > 160 ? '...' : '')} 
         image={cover}
         type="video.tv_show"
+        canonical={`https://listit.app/series/${id}`}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Web Series', url: '/series' },
+          { name: series.name || 'Detail', url: `/series/${id}` }
+        ]}
         structuredData={structuredData}
       />
       {/* Banner / Header */}

@@ -6,6 +6,7 @@ import SeriesCard from '../../components/series/SeriesCard';
 import { SkeletonAnimeGrid } from '../../components/ui/Skeleton';
 import Button from '../../components/ui/Button';
 import Footer from '../../components/layout/Footer';
+import SEO from '../../components/seo/SEO';
 import tvmazeAPI, { isJapaneseAnime } from '../../services/tvmaze';
 
 const SORTS = [
@@ -119,6 +120,15 @@ export default function SeriesBrowse() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
+      <SEO 
+        title="Browse Web Series & TV Shows — Trending, Popular & Top Rated" 
+        description="Explore trending and top-rated TV shows and web series across Netflix, HBO, Disney+, Prime Video and more. Track episode progress on ListIt."
+        canonical="https://listit.app/series"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Browse Series', url: '/series' }
+        ]}
+      />
       {/* Header */}
       <div style={{
         background: 'linear-gradient(135deg, rgba(79,70,229,0.15) 0%, rgba(6,182,212,0.08) 100%)',

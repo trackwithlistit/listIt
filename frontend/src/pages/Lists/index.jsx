@@ -8,6 +8,7 @@ import {
 import Badge from '../../components/ui/Badge';
 import Button from '../../components/ui/Button';
 import Footer from '../../components/layout/Footer';
+import SEO from '../../components/seo/SEO';
 import { useAuthStore, useListStore, useSeriesListStore } from '../../store';
 import { listAPI, seriesListAPI } from '../../services/backend';
 import toast from 'react-hot-toast';
@@ -361,6 +362,7 @@ export default function ListsPage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
+      <SEO title="My Watchlist" noindex={true} />
       <div style={{
         background: 'linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-deep) 100%)',
         borderBottom: '1px solid var(--border)',

@@ -11,6 +11,7 @@ import Badge from '../../components/ui/Badge';
 import Button from '../../components/ui/Button';
 import { Skeleton } from '../../components/ui/Skeleton';
 import Footer from '../../components/layout/Footer';
+import SEO from '../../components/seo/SEO';
 import { userAPI, statsAPI, listAPI } from '../../services/backend';
 import { useAuthStore } from '../../store';
 import toast from 'react-hot-toast';
@@ -100,6 +101,16 @@ export default function ProfilePage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
+      <SEO 
+        title={profile ? `${profile.username}'s Profile & Watchlist` : 'User Profile'}
+        description={profile?.bio || `Explore ${username}'s anime and web series watchlist, ratings, and stats on ListIt.`}
+        canonical={`https://listit.app/profile/${username}`}
+        image={profile?.avatar_url}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: profile?.username || 'Profile', url: `/profile/${username}` }
+        ]}
+      />
       {/* Banner */}
       <div style={{
         height: 280,

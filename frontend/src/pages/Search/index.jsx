@@ -130,7 +130,15 @@ export default function SearchPage() {
 
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh', paddingTop: 'var(--navbar-h)' }}>
-      <SEO title={activeSearchQuery ? `Search: ${activeSearchQuery}` : 'Search'} description="Search for your favorite anime, web series, characters, and studios on listIt." />
+      <SEO 
+        title={activeSearchQuery ? `Search: ${activeSearchQuery}` : 'Search Anime & Series'} 
+        description="Search for your favorite anime, web series, characters, and voice actors across the comprehensive ListIt database."
+        canonical="https://listit.app/search"
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Search', url: '/search' }
+        ]}
+      />
       {/* Search header */}
       <div style={{
         background: 'var(--bg-elevated)', borderBottom: '1px solid var(--border)',
