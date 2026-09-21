@@ -11,6 +11,13 @@ from app import create_app
 # Create Flask app instance for Vercel Python runtime
 flask_app = create_app('production')
 
+@flask_app.route('/api/index.py')
+@flask_app.route('/api/debug-env')
+def vercel_debug_handler():
+    from flask import request
+    env_keys = {k: str(v) for k, v in request.environ.items() if not k.startswith('wsgi.') and 'KEY' not in k and 'SECRET' not in k}
+    return {'status': 'ok', 'environ': env_keys}
+
 API_PREFIXES = ('/auth', '/user', '/lists', '/reviews', '/stats', '/search', '/notifications', '/admin', '/proxy', '/health')
 
 class WSGIRoutingMiddleware:
