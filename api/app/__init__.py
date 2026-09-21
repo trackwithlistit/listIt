@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_cors import CORS
 from config import config
 import os
@@ -137,10 +137,28 @@ def create_app(config_name=None):
     app.register_blueprint(admin_bp,   url_prefix='/api/admin')
     app.register_blueprint(proxy_bp,   url_prefix='/api/proxy')
 
-    @app.route('/')
     @app.route('/api')
     @app.route('/api/health')
     def health():
+        return {'status': 'ok', 'service': 'ListIt API', 'version': '1.0.0'}
+
+    # Locate frontend static dist folder
+    root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    frontend_dist = os.path.join(root_dir, 'frontend', 'dist')
+    if not os.path.exists(frontend_dist):
+        frontend_dist = os.path.join(root_dir, 'dist')
+
+    @app.route('/', defaults={'path': ''})
+    @app.route('/<path:path>')
+    def serve_frontend_spa(path):
+        if path.startswith('api/') or path == 'api':
+            return {'error': 'API endpoint not found', 'path': path}, 404
+        file_path = os.path.join(frontend_dist, path)
+        if path and os.path.exists(file_path) and os.path.isfile(file_path):
+            return send_from_directory(frontend_dist, path)
+        index_file = os.path.join(frontend_dist, 'index.html')
+        if os.path.exists(index_file):
+            return send_from_directory(frontend_dist, 'index.html')
         return {'status': 'ok', 'service': 'ListIt API', 'version': '1.0.0'}
 
     return app
