@@ -123,7 +123,7 @@ export default function SeriesBrowse() {
       <SEO 
         title="Browse Web Series & TV Shows — Trending, Popular & Top Rated" 
         description="Explore trending and top-rated TV shows and web series across Netflix, HBO, Disney+, Prime Video and more. Track episode progress on ListIt."
-        canonical="https://listit.app/series"
+        canonical="https://trackwithlistit.vercel.app/series"
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Browse Series', url: '/series' }

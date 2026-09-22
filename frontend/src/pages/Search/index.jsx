@@ -133,7 +133,8 @@ export default function SearchPage() {
       <SEO 
         title={activeSearchQuery ? `Search: ${activeSearchQuery}` : 'Search Anime & Series'} 
         description="Search for your favorite anime, web series, characters, and voice actors across the comprehensive ListIt database."
-        canonical="https://listit.app/search"
+        canonical="https://trackwithlistit.vercel.app/search"
+        noindex={true}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Search', url: '/search' }

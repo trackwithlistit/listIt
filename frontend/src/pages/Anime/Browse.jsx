@@ -116,7 +116,7 @@ export default function AnimeBrowse() {
       <SEO 
         title="Browse Anime — Charts, Ratings & Genres" 
         description="Browse all anime series, movies, and OVAs. Filter by genre, popularity, release status, score, and format on ListIt."
-        canonical="https://listit.app/anime"
+        canonical="https://trackwithlistit.vercel.app/anime"
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Browse Anime', url: '/anime' }

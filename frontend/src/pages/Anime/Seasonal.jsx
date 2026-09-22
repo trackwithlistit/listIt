@@ -53,7 +53,7 @@ export default function SeasonalPage() {
       <SEO 
         title={`Seasonal Anime ${year} (${season.charAt(0) + season.slice(1).toLowerCase()})`}
         description={`Discover airing and upcoming anime for ${season.charAt(0) + season.slice(1).toLowerCase()} ${year}. Track seasonal release schedules and charts on ListIt.`}
-        canonical={`https://listit.app/anime/seasonal?season=${season}&year=${year}`}
+        canonical={`https://trackwithlistit.vercel.app/anime/seasonal?season=${season}&year=${year}`}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Anime', url: '/anime' },

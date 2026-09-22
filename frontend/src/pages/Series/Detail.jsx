@@ -369,7 +369,7 @@ export default function SeriesDetail() {
         description={description.substring(0, 160) + (description.length > 160 ? '...' : '')} 
         image={cover}
         type="video.tv_show"
-        canonical={`https://listit.app/series/${id}`}
+        canonical={`https://trackwithlistit.vercel.app/series/${id}`}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Web Series', url: '/series' },

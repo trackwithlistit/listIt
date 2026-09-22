@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 
-const DEFAULT_IMAGE = 'https://listit.app/nika-moon.png';
-const DEFAULT_DESCRIPTION = 'Discover, track, and review your favorite anime and web series on ListIt. Real-time episode tracking, AI character search, seasonal charts, and custom lists.';
-const DEFAULT_KEYWORDS = 'anime tracker, web series tracker, watch list app, anilist alternative, myanimelist alternative, ai anime search, seasonal anime 2026, anime reviews, episode progress counter';
+const DEFAULT_IMAGE = 'https://trackwithlistit.vercel.app/nika-moon.png';
+const DEFAULT_DESCRIPTION = 'Track anime and web series with ListIt. Manage your watchlist, track episode progress, discover trending shows, and keep your viewing history organized.';
+const DEFAULT_KEYWORDS = 'anime tracker, anime watchlist, web series tracker, TV show tracker, anime tracking, track anime, episode tracker, anime list, series tracker';
 const SITE_NAME = 'ListIt';
-const SITE_ORIGIN = 'https://listit.app';
+const SITE_ORIGIN = 'https://trackwithlistit.vercel.app';
 
 export default function SEO({ 
   title, 

@@ -4,16 +4,23 @@ Allow: /anime
 Allow: /anime/*
 Allow: /series
 Allow: /series/*
-Allow: /search
-Allow: /profile/*
-Allow: /login
-Allow: /register
+Allow: /anime-tracker
+Allow: /anime-watchlist
+Allow: /web-series-tracker
+Allow: /tv-series-tracker
+Allow: /features
+Allow: /about
+Allow: /how-it-works
 
-# Disallow private/authenticated pages from crawl budget
+# Disallow private/authenticated pages
 Disallow: /dashboard
 Disallow: /lists
 Disallow: /settings
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://listit.app/sitemap.xml
+# Disallow user-specific and search result pages
+Disallow: /profile/
+Disallow: /search
+
+Sitemap: https://trackwithlistit.vercel.app/sitemap.xml

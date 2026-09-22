@@ -23,6 +23,15 @@ import SettingsPage    from './pages/Settings';
 import AdminPage       from './pages/Admin';
 import NotFoundPage    from './pages/Errors/NotFound';
 
+// SEO Landing Pages
+import AnimeTrackerPage    from './pages/Landing/AnimeTracker';
+import AnimeWatchlistPage  from './pages/Landing/AnimeWatchlist';
+import WebSeriesTrackerPage from './pages/Landing/WebSeriesTracker';
+import TVSeriesTrackerPage  from './pages/Landing/TVSeriesTracker';
+import FeaturesPage        from './pages/Landing/Features';
+import HowItWorksPage      from './pages/Landing/HowItWorks';
+import AboutPage           from './pages/Landing/About';
+
 import { useAuthStore, useUIStore } from './store';
 
 // ── Protected Route ──
@@ -87,6 +96,15 @@ export default function App() {
         <Route path="/series/:id" element={<Layout><SeriesDetail /></Layout>} />
         <Route path="/search" element={<Layout><SearchPage /></Layout>} />
         <Route path="/profile/:username" element={<Layout><ProfilePage /></Layout>} />
+
+        {/* SEO Landing Pages */}
+        <Route path="/anime-tracker"       element={<Layout><AnimeTrackerPage /></Layout>} />
+        <Route path="/anime-watchlist"     element={<Layout><AnimeWatchlistPage /></Layout>} />
+        <Route path="/web-series-tracker"  element={<Layout><WebSeriesTrackerPage /></Layout>} />
+        <Route path="/tv-series-tracker"   element={<Layout><TVSeriesTrackerPage /></Layout>} />
+        <Route path="/features"            element={<Layout><FeaturesPage /></Layout>} />
+        <Route path="/how-it-works"        element={<Layout><HowItWorksPage /></Layout>} />
+        <Route path="/about"               element={<Layout><AboutPage /></Layout>} />
 
         {/* Auth routes (no Navbar overlay needed) */}
         <Route path="/login"           element={<LoginPage />} />

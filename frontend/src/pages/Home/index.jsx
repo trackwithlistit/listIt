@@ -66,7 +66,7 @@ export default function HomePage() {
   return (
     <div style={{ background: 'var(--bg-deep)', minHeight: '100vh' }}>
       <SEO 
-        canonical="https://listit.app/"
+        canonical="https://trackwithlistit.vercel.app/"
         breadcrumbs={[
           { name: 'Home', url: '/' }
         ]}

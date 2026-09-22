@@ -45,7 +45,8 @@ export default function LoginPage() {
       <SEO 
         title="Log In" 
         description="Log in to your ListIt account to track your anime and web series journey."
-        canonical="https://listit.app/login"
+        canonical="https://trackwithlistit.vercel.app/login"
+        noindex={true}
       />
       {/* ── LEFT: Brand panel ── */}
       <div style={{

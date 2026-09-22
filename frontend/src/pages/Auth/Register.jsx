@@ -166,7 +166,8 @@ export default function RegisterPage() {
       <SEO 
         title="Sign Up" 
         description="Create your ListIt account to track anime, web series, characters, and discover new favorites."
-        canonical="https://listit.app/register"
+        canonical="https://trackwithlistit.vercel.app/register"
+        noindex={true}
       />
       {/* Background blobs */}
       <div style={{ position: 'fixed', top: '10%', left: '5%', width: 400, height: 400, borderRadius: '50%', background: 'var(--primary-glow)', filter: 'blur(100px)', opacity: 0.3, pointerEvents: 'none' }} />

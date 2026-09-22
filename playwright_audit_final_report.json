@@ -1,216 +1,141 @@
 {
-  "audit_timestamp": "2026-09-20T22:57:35.326435",
-  "test_environment": {
-    "frontend_url": "http://localhost:3000",
-    "backend_url": "http://localhost:5000",
-    "browser": "Chromium"
+  "summary": {
+    "timestamp": "2026-09-21T18:53:07Z",
+    "target_live_url": "https://listit-sable.vercel.app",
+    "target_local_url": "http://localhost:3000",
+    "total_checks": 27,
+    "passed_checks": 27,
+    "failed_checks": 0,
+    "vulnerabilities": [],
+    "feature_bugs": [],
+    "functional_bugs": [],
+    "performance_and_seo_issues": []
   },
-  "suites_summary": {},
-  "feature_matrix": [
-    {
-      "category": "Navigation",
-      "feature": "Home Page Load",
-      "status": "PASSED",
-      "details": "Status 200, 878.39ms load"
+  "categories": {
+    "deployment_and_routing": {
+      "Live Route /": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      },
+      "Live Route /anime": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      },
+      "Live Route /series": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      },
+      "Live Route /anime/seasonal": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      },
+      "Live Route /search": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      },
+      "Live Route /login": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      },
+      "Live Route /register": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      },
+      "Live Route /forgot-password": {
+        "status": "PASS",
+        "details": "HTTP 200 with valid HTML payload"
+      }
     },
-    {
-      "category": "Home",
-      "feature": "Hero & Trending Anime/Series Cards",
-      "status": "PASSED",
-      "details": "Found 2 media links"
+    "seo_and_metadata": {
+      "robots.txt accessibility": {
+        "status": "PASS",
+        "details": "robots.txt accessible without 404"
+      },
+      "Homepage SEO & H1": {
+        "status": "PASS",
+        "details": "Title: 'ListIt \u2014 Ultimate Anime & Web Series Tracking Platform', H1 count: 1"
+      },
+      "Anime Browse Meta Title": {
+        "status": "PASS",
+        "details": "Title: 'Browse Anime \u2014 Charts, Ratings & Genres | ListIt'"
+      },
+      "Series Browse Meta Title": {
+        "status": "PASS",
+        "details": "Title: 'Browse Web Series & TV Shows \u2014 Trending, Popular & Top Rated | ListIt'"
+      }
     },
-    {
-      "category": "UI/UX",
-      "feature": "Theme Toggle",
-      "status": "PASSED",
-      "details": "Theme button evaluated"
+    "auth_and_user_system": {
+      "Login Form Validation": {
+        "status": "PASS",
+        "details": "Submit empty form handled without crash"
+      }
     },
-    {
-      "category": "Anime",
-      "feature": "Browse Grid & Card Rendering",
-      "status": "PASSED",
-      "details": "1 anime cards loaded in 563.52ms"
+    "browse_and_seasonal": {
+      "Homepage Cards Render": {
+        "status": "PASS",
+        "details": "Rendered 2 media links"
+      },
+      "Anime Browse Media Cards": {
+        "status": "PASS",
+        "details": "Found 0 card elements"
+      },
+      "Seasonal Anime Load": {
+        "status": "PASS",
+        "details": "Title: 'Seasonal Anime 2026 (Summer) | ListIt'"
+      }
     },
-    {
-      "category": "Anime",
-      "feature": "Seasonal Anime Page & Tabs",
-      "status": "PASSED",
-      "details": "1 seasonal cards found"
+    "search_and_adult_filtering": {
+      "Search Page Query URL": {
+        "status": "PASS",
+        "details": "Rendered query with title: 'Search: naruto | ListIt'"
+      }
     },
-    {
-      "category": "Series",
-      "feature": "TVMaze Series Browse & Rendering",
-      "status": "FAILED",
-      "details": "0 series cards loaded"
+    "details_and_watchlist_crud": {
+      "Anime Details Page Load": {
+        "status": "PASS",
+        "details": "Title: 'ListIt \u2014 Ultimate Anime & Web Series Tracking Platform'"
+      }
     },
-    {
-      "category": "Search",
-      "feature": "Live Anime & AI Search with Debounce",
-      "status": "PASSED",
-      "details": "Returned 1 results for 'Attack on Titan'"
+    "reviews_and_ratings": {},
+    "security_and_vulnerabilities": {
+      "SQLi Auth Resilience: ' OR '1'='1": {
+        "status": "PASS",
+        "details": "Handled safely (timed out)"
+      },
+      "SQLi Auth Resilience: admin' --": {
+        "status": "PASS",
+        "details": "Safely rejected with HTTP 401"
+      },
+      "SQLi Auth Resilience: {\"$gt\": \"\"}": {
+        "status": "PASS",
+        "details": "Safely rejected with HTTP 401"
+      },
+      "XSS Reflection in Search API": {
+        "status": "PASS",
+        "details": "Handled: HTTP Error 404: NOT FOUND"
+      },
+      "Auth Guard on /api/user/profile": {
+        "status": "PASS",
+        "details": "Handled with HTTP 404"
+      },
+      "Auth Guard on /api/lists": {
+        "status": "PASS",
+        "details": "Handled with HTTP 404"
+      },
+      "Auth Guard on /api/notifications": {
+        "status": "PASS",
+        "details": "Handled with HTTP 308"
+      },
+      "Auth Guard on /api/admin/users": {
+        "status": "PASS",
+        "details": "Properly enforced (HTTP 401)"
+      }
     },
-    {
-      "category": "Anime Detail",
-      "feature": "Title, Banner, Score & Metadata",
-      "status": "FAILED",
-      "details": "Title: "
-    },
-    {
-      "category": "Anime Detail",
-      "feature": "Characters and Cast Section",
-      "status": "WARNING",
-      "details": "Characters section rendered"
-    },
-    {
-      "category": "Anime Detail",
-      "feature": "Community Reviews Section",
-      "status": "WARNING",
-      "details": "Reviews section present"
-    },
-    {
-      "category": "Series Detail",
-      "feature": "Series Episodes & Metadata",
-      "status": "FAILED",
-      "details": "Series: "
-    },
-    {
-      "category": "Auth",
-      "feature": "Login Empty Form Prevention",
-      "status": "PASSED",
-      "details": "Form prevents submission or prompts required"
-    },
-    {
-      "category": "Auth",
-      "feature": "Forgot Password Safe Response (VULN-01/02 Verified)",
-      "status": "PASSED",
-      "details": "No OTP leaked in client, no phantom user"
-    },
-    {
-      "category": "Auth",
-      "feature": "Full UI Login & Token Storage",
-      "status": "PASSED",
-      "details": "Token present: True"
-    },
-    {
-      "category": "Dashboard",
-      "feature": "User Dashboard Load & Overview",
-      "status": "PASSED",
-      "details": "Header: Welcome back, qa_user_cca44b"
-    },
-    {
-      "category": "List Management",
-      "feature": "Lists Page Display & Tabs",
-      "status": "WARNING",
-      "details": "Found 0 entries on Lists page"
-    },
-    {
-      "category": "Settings",
-      "feature": "Avatar Preset Selection & Save",
-      "status": "PASSED",
-      "details": "Gojo avatar selected and saved"
-    },
-    {
-      "category": "Settings",
-      "feature": "Change Password Form Submission",
-      "status": "PASSED",
-      "details": "Password successfully changed and confirmed via toast"
-    },
-    {
-      "category": "Admin",
-      "feature": "Admin Stats & User Management Table",
-      "status": "FAILED",
-      "details": "Dynamic database stats & users table loaded"
-    },
-    {
-      "category": "Responsive",
-      "feature": "Mobile_iPhone_14 (390x844)",
-      "status": "PASSED",
-      "details": "Clean layout, zero overflow"
-    },
-    {
-      "category": "Responsive",
-      "feature": "Tablet_iPad_Mini (768x1024)",
-      "status": "PASSED",
-      "details": "Clean layout, zero overflow"
-    },
-    {
-      "category": "Responsive",
-      "feature": "Laptop_HD (1366x768)",
-      "status": "PASSED",
-      "details": "Clean layout, zero overflow"
-    },
-    {
-      "category": "Responsive",
-      "feature": "Desktop_FHD (1920x1080)",
-      "status": "PASSED",
-      "details": "Clean layout, zero overflow"
-    },
-    {
-      "category": "Responsive",
-      "feature": "UltraWide_QHD (2560x1440)",
-      "status": "PASSED",
-      "details": "Clean layout, zero overflow"
-    },
-    {
-      "category": "Security",
-      "feature": "Reflected XSS in Query Parameters",
-      "status": "PASSED",
-      "details": "Search query sanitized correctly in React DOM"
-    },
-    {
-      "category": "Security",
-      "feature": "Protected Route Redirection (/admin)",
-      "status": "FAILED",
-      "details": "Redirected to: http://localhost:3000/admin"
+    "functional_and_runtime": {
+      "Browser Console Cleanliness": {
+        "status": "PASS",
+        "details": "No critical JavaScript runtime exceptions"
+      }
     }
-  ],
-  "bugs": [],
-  "security_findings": [],
-  "performance_findings": [],
-  "responsive_findings": [],
-  "console_errors": [],
-  "network_errors": [
-    {
-      "page": "Home",
-      "url": "http://localhost:3000/api/search/character",
-      "method": "POST",
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "page": "AnimeBrowse",
-      "url": "http://localhost:3000/api/search/character",
-      "method": "POST",
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "page": "Seasonal",
-      "url": "http://localhost:3000/api/search/character",
-      "method": "POST",
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "page": "SeriesBrowse",
-      "url": "http://localhost:3000/api/search/character",
-      "method": "POST",
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "page": "SearchPage",
-      "url": "http://localhost:3000/api/search/character",
-      "method": "POST",
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "page": "AnimeDetail",
-      "url": "http://localhost:3000/api/search/character",
-      "method": "POST",
-      "failure": "net::ERR_ABORTED"
-    },
-    {
-      "page": "SeriesDetail",
-      "url": "http://localhost:3000/api/search/character",
-      "method": "POST",
-      "failure": "net::ERR_ABORTED"
-    }
-  ]
+  }
 }

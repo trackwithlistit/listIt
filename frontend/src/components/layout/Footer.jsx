@@ -3,23 +3,29 @@ import { BookmarkSimple, GithubLogo, DiscordLogo, TwitterLogo } from '@phosphor-
 import Logo from '../ui/Logo';
 
 const FOOTER_LINKS = {
-  Platform: [
-    { label: 'Anime', to: '/anime' },
-    { label: 'Web Series', to: '/series' },
-    { label: 'Search', to: '/search' },
-    { label: 'Seasonal', to: '/anime/seasonal' },
+  Trackers: [
+    { label: 'Anime Tracker', to: '/anime-tracker' },
+    { label: 'Anime Watchlist', to: '/anime-watchlist' },
+    { label: 'Web Series Tracker', to: '/web-series-tracker' },
+    { label: 'TV Series Tracker', to: '/tv-series-tracker' },
   ],
-  Account: [
-    { label: 'Sign Up', to: '/register' },
-    { label: 'Log In', to: '/login' },
-    { label: 'Dashboard', to: '/dashboard' },
-    { label: 'Settings', to: '/settings' },
+  Platform: [
+    { label: 'Browse Anime', to: '/anime' },
+    { label: 'Browse Web Series', to: '/series' },
+    { label: 'Seasonal Anime', to: '/anime/seasonal' },
+    { label: 'Search Database', to: '/search' },
   ],
   Discover: [
-    { label: 'Trending', to: '/anime?sort=trending' },
-    { label: 'Top Rated', to: '/anime?sort=top' },
-    { label: 'Popular', to: '/anime?sort=popular' },
-    { label: 'Upcoming', to: '/anime?status=upcoming' },
+    { label: 'Trending Anime', to: '/anime?sort=trending' },
+    { label: 'Top Rated Anime', to: '/anime?sort=top' },
+    { label: 'Popular Series', to: '/series' },
+    { label: 'Upcoming Releases', to: '/anime?status=upcoming' },
+  ],
+  Company: [
+    { label: 'Features', to: '/features' },
+    { label: 'How It Works', to: '/how-it-works' },
+    { label: 'About Us', to: '/about' },
+    { label: 'Sign Up Free', to: '/register' },
   ],
 };
 
@@ -34,8 +40,8 @@ export default function Footer() {
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr repeat(3, auto)',
-          gap: '48px',
+          gridTemplateColumns: '1.2fr repeat(4, auto)',
+          gap: '36px',
           marginBottom: '48px',
         }}>
           {/* Brand */}
@@ -120,14 +126,16 @@ export default function Footer() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           footer .container > div:first-child {
             grid-template-columns: 1fr 1fr !important;
+            gap: 32px !important;
           }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 540px) {
           footer .container > div:first-child {
             grid-template-columns: 1fr !important;
+            gap: 28px !important;
           }
         }
       `}</style>

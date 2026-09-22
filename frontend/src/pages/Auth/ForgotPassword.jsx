@@ -111,7 +111,8 @@ export default function ForgotPasswordPage() {
       <SEO 
         title="Forgot Password" 
         description="Reset your ListIt account password."
-        canonical="https://listit.app/forgot-password"
+        canonical="https://trackwithlistit.vercel.app/forgot-password"
+        noindex={true}
       />
       {/* ── LEFT: Brand panel ── */}
       <div style={{

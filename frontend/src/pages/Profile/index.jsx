@@ -104,7 +104,8 @@ export default function ProfilePage() {
       <SEO 
         title={profile ? `${profile.username}'s Profile & Watchlist` : 'User Profile'}
         description={profile?.bio || `Explore ${username}'s anime and web series watchlist, ratings, and stats on ListIt.`}
-        canonical={`https://listit.app/profile/${username}`}
+        canonical={`https://trackwithlistit.vercel.app/profile/${username}`}
+        noindex={true}
         image={profile?.avatar_url}
         breadcrumbs={[
           { name: 'Home', url: '/' },
