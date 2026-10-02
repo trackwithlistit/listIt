@@ -97,9 +97,18 @@ def register():
     if db_proxy.find_user_by_username(username):
         return jsonify({'message': 'Username already taken'}), 409
 
-    # Verify email OTP status if checked
-    if db_proxy.get_otp(email) and not db_proxy.is_email_verified(email):
-        return jsonify({'message': 'Email address must be verified with OTP before creating an account.'}), 400
+    # Verify email OTP status
+    submitted_otp = str(data.get('otp', '')).strip()
+    otp_record = db_proxy.get_otp(email)
+    if otp_record:
+        is_verified = db_proxy.is_email_verified(email)
+        if not is_verified and submitted_otp:
+            submitted_hash = hashlib.sha256(submitted_otp.encode()).hexdigest()
+            if (submitted_hash == otp_record.get('otp_hash')) or (submitted_otp == otp_record.get('code_plain')):
+                is_verified = True
+                db_proxy.mark_email_verified(email)
+        if not is_verified:
+            return jsonify({'message': 'Email address must be verified with OTP before creating an account.'}), 400
 
     pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
 

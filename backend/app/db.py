@@ -504,6 +504,9 @@ class SupabaseDatabaseProxy:
             pass
 
     def mark_email_verified(self, email):
+        if not hasattr(self, '_verified_emails'):
+            self._verified_emails = set()
+        self._verified_emails.add(email)
         v_file = self._get_cache_file('verified_emails.json')
         try:
             data = {}
@@ -517,18 +520,26 @@ class SupabaseDatabaseProxy:
             pass
 
     def is_email_verified(self, email):
-        v_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'verified_emails.json')
+        if hasattr(self, '_verified_emails') and email in self._verified_emails:
+            return True
+        v_file = self._get_cache_file('verified_emails.json')
         try:
             if os.path.exists(v_file):
                 with open(v_file, 'r') as f:
                     data = json.load(f)
-                    return email in data
+                    if email in data:
+                        if not hasattr(self, '_verified_emails'):
+                            self._verified_emails = set()
+                        self._verified_emails.add(email)
+                        return True
         except Exception:
             pass
         return False
 
     def clear_email_verified(self, email):
-        v_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'verified_emails.json')
+        if hasattr(self, '_verified_emails'):
+            self._verified_emails.discard(email)
+        v_file = self._get_cache_file('verified_emails.json')
         try:
             if os.path.exists(v_file):
                 with open(v_file, 'r') as f:

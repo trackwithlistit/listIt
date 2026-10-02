@@ -148,6 +148,7 @@ export default function RegisterPage() {
       username: form.username,
       bio: form.bio,
       favorite_genres: form.genres,
+      otp: otp,
     });
     if (result.success) {
       toast.success('Account created! Welcome to listIt 🎌');
