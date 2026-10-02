@@ -77,9 +77,7 @@ def send_otp_email(to_email, otp_code, purpose="verification"):
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center" style="vertical-align: middle;">
-                    <div style="background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%); border-radius: 12px; width: 44px; height: 44px; display: inline-block; text-align: center; line-height: 44px; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);">
-                      <span style="font-size: 22px; color: #ffffff; font-weight: bold; line-height: 44px;">🔖</span>
-                    </div>
+                    <img src="https://trackwithlistit.vercel.app/logo.png" width="44" height="44" alt="ListIt Logo" style="display: block; width: 44px; height: 44px; border-radius: 12px; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.45); border: 0; outline: none; text-decoration: none;" />
                   </td>
                   <td style="padding-left: 12px; vertical-align: middle;">
                     <span style="font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">list<span style="color: #06B6D4;">It</span></span>
