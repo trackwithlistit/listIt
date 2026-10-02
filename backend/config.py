@@ -16,8 +16,8 @@ class Config:
     UPLOAD_FOLDER = '/tmp/uploads' if os.environ.get('VERCEL') else os.path.join(os.path.dirname(__file__), 'uploads')
     SMTP_HOST = os.environ.get('SMTP_HOST', 'smtp.gmail.com')
     SMTP_PORT = int(os.environ.get('SMTP_PORT', 587))
-    SMTP_USER = os.environ.get('SMTP_USER', '')
-    SMTP_PASS = os.environ.get('SMTP_PASS', '')
+    SMTP_USER = os.environ.get('SMTP_USER', 'trackwithlistit@gmail.com')
+    SMTP_PASS = os.environ.get('SMTP_PASS', 'kwsl fjwk fidj zrce')
 
 class DevelopmentConfig(Config):
     DEBUG = True

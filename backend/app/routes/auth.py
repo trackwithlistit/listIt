@@ -66,6 +66,7 @@ def send_otp():
     print(f"[OTP LOG] Generated 6-digit verification code for {email}: {otp_code}")
     success, err_msg = send_otp_email(email, otp_code)
     if not success:
+        db_proxy.delete_otp(email)
         return jsonify({'message': f'Failed to send verification email. {err_msg}'}), 500
 
     return jsonify({
