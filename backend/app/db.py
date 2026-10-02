@@ -443,38 +443,56 @@ class SupabaseDatabaseProxy:
                 pass
         return True
 
-    # ── OTP PERSISTENCE (survives process restarts) ──
+    def _get_cache_file(self, filename):
+        if os.environ.get('VERCEL') or os.path.exists('/tmp'):
+            return os.path.join('/tmp', filename)
+        return os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), filename)
+
+    # ── OTP PERSISTENCE (survives process restarts & serverless execution) ──
     def save_otp(self, email, otp_data):
-        cache_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'otp_cache.json')
+        if not hasattr(self, '_otp_cache'):
+            self._otp_cache = {}
+        s_data = dict(otp_data)
+        if 'created_at' in s_data and hasattr(s_data['created_at'], 'isoformat'):
+            s_data['created_at'] = s_data['created_at'].isoformat()
+        if 'expires_at' in s_data and hasattr(s_data['expires_at'], 'isoformat'):
+            s_data['expires_at'] = s_data['expires_at'].isoformat()
+        self._otp_cache[email] = s_data
+
+        cache_file = self._get_cache_file('otp_cache.json')
         try:
             data = {}
             if os.path.exists(cache_file):
                 with open(cache_file, 'r') as f:
                     data = json.load(f)
-            s_data = dict(otp_data)
-            if 'created_at' in s_data and hasattr(s_data['created_at'], 'isoformat'):
-                s_data['created_at'] = s_data['created_at'].isoformat()
-            if 'expires_at' in s_data and hasattr(s_data['expires_at'], 'isoformat'):
-                s_data['expires_at'] = s_data['expires_at'].isoformat()
             data[email] = s_data
             with open(cache_file, 'w') as f:
                 json.dump(data, f, indent=2)
         except Exception as e:
-            print(f"[OTP Persistence Error]: {e}")
+            print(f"[OTP Persistence Notice]: {e}")
 
     def get_otp(self, email):
-        cache_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'otp_cache.json')
+        if hasattr(self, '_otp_cache') and email in self._otp_cache:
+            return self._otp_cache[email]
+        cache_file = self._get_cache_file('otp_cache.json')
         try:
             if os.path.exists(cache_file):
                 with open(cache_file, 'r') as f:
                     data = json.load(f)
-                    return data.get(email)
+                    val = data.get(email)
+                    if val:
+                        if not hasattr(self, '_otp_cache'):
+                            self._otp_cache = {}
+                        self._otp_cache[email] = val
+                    return val
         except Exception as e:
-            print(f"[OTP Read Error]: {e}")
+            print(f"[OTP Read Notice]: {e}")
         return None
 
     def delete_otp(self, email):
-        cache_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'otp_cache.json')
+        if hasattr(self, '_otp_cache'):
+            self._otp_cache.pop(email, None)
+        cache_file = self._get_cache_file('otp_cache.json')
         try:
             if os.path.exists(cache_file):
                 with open(cache_file, 'r') as f:
@@ -486,7 +504,7 @@ class SupabaseDatabaseProxy:
             pass
 
     def mark_email_verified(self, email):
-        v_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'verified_emails.json')
+        v_file = self._get_cache_file('verified_emails.json')
         try:
             data = {}
             if os.path.exists(v_file):

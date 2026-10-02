@@ -235,12 +235,10 @@ def forgot_password():
 
     user = db_proxy.find_user_by_email(email)
 
-    # VULN-02 FIX: Do NOT create phantom user if email does not exist
     if not user:
         return jsonify({
-            'message': f'If an account exists with {email}, a verification code has been sent.',
-            'email': email
-        }), 200
+            'message': 'No account found with this email address. Please check your email or sign up.'
+        }), 404
 
     # Generate secure 6-digit OTP code
     otp_code = f"{secrets.randbelow(900000) + 100000}"
@@ -248,7 +246,7 @@ def forgot_password():
     now = datetime.datetime.now(datetime.timezone.utc)
     expires_at = now + datetime.timedelta(minutes=15)
 
-    # VULN-03 FIX: Persist OTP to disk
+    # Persist OTP
     db_proxy.save_otp(email, {
         'email': email,
         'otp_hash': otp_hash,
@@ -260,11 +258,12 @@ def forgot_password():
     })
 
     from app.utils.email_utils import send_otp_email
-    send_otp_email(email, otp_code)
+    success, err_msg = send_otp_email(email, otp_code, purpose="password_reset")
+    if not success:
+        return jsonify({'message': f'Failed to send password reset email. {err_msg}'}), 500
 
-    # VULN-01 FIX: Do NOT leak otp_code in JSON response
     return jsonify({
-        'message': f'Verification OTP sent to {email}',
+        'message': f'Password reset verification code sent to {email}',
         'email': email
     })
 
